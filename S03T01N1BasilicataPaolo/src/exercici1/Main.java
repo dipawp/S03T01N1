@@ -19,8 +19,8 @@ public class Main {
         	switch(in) {
             case "1":
            	 undo = Undo.getInstance();
-           	 if(undo.llistaComandes.size() > 0) {
-           		 for (String cmdString : undo.llistaComandes) {
+           	 if(undo.getCommandsList().size() > 0) {
+           		 for (String cmdString : undo.getCommandsList()) {
         				System.out.println("-" + cmdString);
         			}
            		 System.out.println("#########################");
@@ -41,9 +41,9 @@ public class Main {
            	 break;
             case "3":
             	undo = Undo.getInstance();
-            	if(undo.llistaComandes.size() > 0) {
-            		for(int i = 0; i <= undo.llistaComandes.size() -1; i++) {
-                		System.out.println(i+1 + "." + undo.llistaComandes.get(i));
+            	if(undo.getCommandsList().size() > 0) {
+            		for(int i = 0; i <= undo.getCommandsList().size() -1; i++) {
+                		System.out.println(i+1 + "." + undo.getCommandsList().get(i));
                 		}
             	}else {
             		System.out.println("no items");
@@ -55,7 +55,7 @@ public class Main {
             	break;
             case "4":
             	undo = Undo.getInstance();
-            	if(undo.llistaComandes.size() > 0) {
+            	if(undo.getCommandsList().size() > 0) {
             		undo.deleteLastCommand();
             	}else {
             		System.out.println("no items");

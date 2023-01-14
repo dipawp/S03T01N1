@@ -3,7 +3,7 @@ package exercici1;
 import java.util.ArrayList;
 
 public class Undo {
-	public ArrayList<String> llistaComandes = new ArrayList<String>();
+	private ArrayList<String> commandsList = new ArrayList<String>();
 	
 	private Undo() {
 		//System.out.println("S'ha creat una istancia de la classe Undo");
@@ -17,15 +17,23 @@ public class Undo {
 		return UndoHelper.INSTANCE;
 	}
 	
+	public void setCommandsList(ArrayList<String> commandsList) {
+		this.commandsList = commandsList;
+	}
+	
+	public ArrayList<String> getCommandsList() {
+		return commandsList;
+	}
+	
 	public void addCommand(String command) {
-		UndoHelper.INSTANCE.llistaComandes.add(command);
+		UndoHelper.INSTANCE.commandsList.add(command);
 		System.out.println("item inserted correctly");
 		System.out.println("#########################");
 	}
 	
 	public void removeCommand(int index) {
 		try {
-			llistaComandes.remove(index);
+			commandsList.remove(index);
 			System.out.println("item deleted successfully");
 		} catch (Exception e) {
 			System.out.println("this item cannot be deleted");
@@ -33,8 +41,8 @@ public class Undo {
 		
 	}
 	public void deleteLastCommand() {
-		if(llistaComandes.size() > 0) {
-			llistaComandes.remove(llistaComandes.size() - 1);
+		if(commandsList.size() > 0) {
+			commandsList.remove(commandsList.size() - 1);
 		}
 	}
 
